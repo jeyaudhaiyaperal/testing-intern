@@ -8,7 +8,8 @@ import { windowWidth } from '../utils/utils';
 export default function ScreenTwo() {
     return (
         <ScrollView style={{ backgroundColor: 'white' }}>
-            <Header />
+            <View style={{ height: 10 }} />
+            <Header showIcon={true} text="Doctor's Profile" />
             <BuildTopComponent />
 
             <BuildSecondComponent />
@@ -21,7 +22,8 @@ export default function ScreenTwo() {
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
                     <TouchableOpacity style={{
                         width: '30%', height: 50, justifyContent: 'center', alignItems: 'center',
-                        backgroundColor: Colors.BLUE2, borderRadius: 12,
+                        backgroundColor: Colors.BLUE2, borderRadius: 12, elevation: 40,
+                        shadowColor: '#999'
                     }}>
                         <Text style={{ color: 'white', fontSize: 16 }}>11:00 AM</Text>
                     </TouchableOpacity>
@@ -127,13 +129,13 @@ const BuildTopComponent = () => {
                     </Text>
                     <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                         <Image
-                            source={require("../../assets/star.png")}
-                            style={{ width: 20, height: 20 }}
+                            source={require("../../assets/heart-fill.png")}
+                            style={{ width: 20, height: 20, tintColor: "#ff0000" }}
                         />
-                        <View style={{ width: 6 }} />
+                        <View style={{ width: 10 }} />
                         <Image
-                            source={require("../../assets/heart.png")}
-                            style={{ width: 22, height: 22, tintColor: Colors.SILVER }}
+                            source={require("../../assets/share.png")}
+                            style={{ width: 22, height: 22 }}
                         />
                     </View>
                 </View>
@@ -146,21 +148,21 @@ const BuildTopComponent = () => {
                     <Image
                         source={require('../../assets/location.png')}
                         style={{
-                            width: 16, height: 16, tintColor: "#51B7B7",
-                            marginRight: 4,
+                            width: 20, height: 20, tintColor: "#51B7B7",
+                            marginRight: 4, marginLeft: -4,
                         }}
                     />
-                    <Text style={{ fontSize: 13, color: 'black', fontWeight: '300' }}>
+                    <Text style={{ fontSize: 13, color: 'black', fontWeight: '300', }}>
                         Location: Delhi, India
                     </Text>
                 </View>
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 6 }}>
                     <Image
-                        source={require('../../assets/location.png')}
+                        source={require('../../assets/clock.png')}
                         style={{
-                            width: 16, height: 16, tintColor: "#51B7B7",
-                            marginRight: 4,
+                            width: 13, height: 13, tintColor: "#51B7B7",
+                            marginRight: 8,
                         }}
                     />
                     <Text style={{ fontSize: 13, color: 'black', fontWeight: '300' }}>
@@ -186,10 +188,10 @@ const BuildSecondComponent = () => {
                 <Text style={{ fontSize: 14, color: 'grey', fontWeight: '300', textAlign: 'center' }}>
                     Patients
                 </Text>
-                <View style={{ flexDirection: 'row', marginTop: 4 }}>
+                <View style={{ flexDirection: 'row', marginTop: 8 }}>
                     <Image
-                        source={require("../../assets/group.png")}
-                        style={{ width: 24, height: 24, marginRight: 6 }}
+                        source={require("../../assets/users.png")}
+                        style={{ width: 20, height: 20, marginRight: 6, tintColor: Colors.BLUE }}
                     />
                     <Text style={{ fontSize: 16, color: 'black', fontWeight: '600' }}>1000+</Text>
                 </View>
@@ -203,10 +205,10 @@ const BuildSecondComponent = () => {
                 <Text style={{ fontSize: 14, color: 'grey', fontWeight: '300', textAlign: 'center' }}>
                     Experience
                 </Text>
-                <View style={{ flexDirection: 'row', marginTop: 4 }}>
+                <View style={{ flexDirection: 'row', marginTop: 8 }}>
                     <Image
-                        source={require("../../assets/user.png")}
-                        style={{ width: 20, height: 20, marginRight: 6 }}
+                        source={require("../../assets/scholar.png")}
+                        style={{ width: 20, height: 20, marginRight: 6, tintColor: Colors.BLUE2 }}
                     />
                     <Text style={{ fontSize: 16, color: 'black', fontWeight: '600' }}>10 yes+</Text>
                 </View>
@@ -220,7 +222,7 @@ const BuildSecondComponent = () => {
                 <Text style={{ fontSize: 14, color: 'grey', fontWeight: '300', textAlign: 'center' }}>
                     Rating
                 </Text>
-                <View style={{ flexDirection: 'row', marginTop: 4 }}>
+                <View style={{ flexDirection: 'row', marginTop: 8 }}>
                     <Image
                         source={require("../../assets/star.png")}
                         style={{ width: 20, height: 20, marginRight: 6 }}

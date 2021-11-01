@@ -7,19 +7,21 @@ import { Colors } from '../utils/Colors';
 import { windowWidth } from '../utils/utils';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScrollView } from 'native-base';
+import { useNavigation } from '@react-navigation/core';
 
 export default function ScreenOne() {
+    const navigation = useNavigation();
     return (
         <>
             <ScrollView style={{ backgroundColor: 'white', paddingTop: 10 }}>
-                <Header />
+                <Header showIcon={false} text="Doctor's for 'Bad Stomach'" />
                 <View style={{ paddingHorizontal: 16 }}>
                     <Search />
-                    <BuildCustomCardComponent />
-                    <BuildCustomCardComponent />
-                    <BuildCustomCardComponent />
-                    <BuildCustomCardComponent />
-                    <BuildCustomCardComponent />
+                    <BuildCustomCardComponent navigation={navigation} />
+                    <BuildCustomCardComponent navigation={navigation} />
+                    <BuildCustomCardComponent navigation={navigation} />
+                    <BuildCustomCardComponent navigation={navigation} />
+                    <BuildCustomCardComponent navigation={navigation} />
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity style={{
@@ -50,23 +52,23 @@ const BuildCardButtonComponent = ({ image, text }) => {
     );
 }
 
-const BuildCustomCardComponent = () => {
+const BuildCustomCardComponent = ({ navigation }) => {
     return (
         <Card style={{ elevation: 10, marginVertical: 16, shadowColor: "silver", paddingBottom: 10 }}>
             <View style={styles.shadow}>
                 <View>
                     <Image
                         source={{ uri: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }}
-                        style={{ width: 60, height: 60, borderRadius: 100 }}
+                        style={{ width: 75, height: 75, borderRadius: 100 }}
                     />
                     <Card style={{
                         width: 14, height: 14, backgroundColor: '#51B7B7',
                         borderRadius: 100, position: 'absolute',
-                        right: 5, top: 48, borderWidth: 2, borderColor: 'white',
+                        right: 0, top: 54, borderWidth: 2, borderColor: 'white',
                         elevation: 4, shadowColor: '#999'
                     }} />
                 </View>
-                <View style={{ flexDirection: 'column', width: windowWidth - 140 }}>
+                <View style={{ flexDirection: 'column', width: windowWidth - 148 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={{ fontSize: 16, fontWeight: 'bold', color: Colors.BLACK }}>
                             Dr. Co Ekaterine
@@ -78,7 +80,7 @@ const BuildCustomCardComponent = () => {
                             />
                             <Text style={{
                                 fontSize: 16, fontWeight: 'bold', color: Colors.BLACK,
-                                marginHorizontal: 6
+                                marginHorizontal: 8
                             }}>4.5</Text>
                             <Image
                                 source={require("../../assets/heart.png")}
@@ -129,7 +131,9 @@ const BuildCustomCardComponent = () => {
                 alignItems: 'center', marginTop: 8
             }}>
                 <Text style={{ fontSize: 26, color: 'black', fontWeight: '600' }}>₹ 700</Text>
-                <TouchableOpacity style={styles.button_bookAppointment}>
+                <TouchableOpacity style={styles.button_bookAppointment} onPress={() => {
+                    navigation.navigate("ScreenTwo")
+                }}>
                     <Text style={{ fontSize: 16, color: 'white', marginLeft: 4 }}>Book Appointment</Text>
                 </TouchableOpacity>
             </View>

@@ -5,15 +5,21 @@ import {
     View,
     Image
 } from "react-native";
+import { Card } from "react-native-paper";
 import { Colors } from "../utils/Colors";
 
 
 const Search = () => {
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', height: 46, marginTop: 10 }}>
+        // <Card style={{ elevation: 4, shadowColor: '#999' }}>
+        <View style={{
+            flexDirection: 'row', alignItems: 'center', marginTop: 10,
+            borderRadius: 10,
+            elevation: 5, shadowColor: '#999', overflow: 'hidden',
+        }}>
             <TextInput
                 style={{
-                    backgroundColor: Colors.INPUTFILLCOLOR, height: 50,
+                    backgroundColor: Colors.WHITE, height: 50,
                     color: "white", width: "100%", paddingLeft: 24,
                     borderRadius: 10,
                 }}
@@ -29,6 +35,7 @@ const Search = () => {
                 }}
             />
         </View>
+        // </Card>
     );
 };
 
