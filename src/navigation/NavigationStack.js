@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import ScreenOne from '../screens/ScreenOne';
-import ScreenTwo from '../screens/ScreenTwo';
+import SearchDoctorScreen from '../screens/SearchDoctorScreen';
+import DoctorProfileScreen from '../screens/DoctorProfileScreen';
 import ScreenThree from '../screens/ScreenThree';
 
 const Stack = createStackNavigator();
@@ -12,14 +12,14 @@ const NavigationStack = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name="ScreenOne"
-                component={ScreenOne}
+                name="SearchDoctorScreen"
+                component={SearchDoctorScreen}
                 options={{ headerShown: false }}
             />
 
             <Stack.Screen
-                name="ScreenTwo"
-                component={ScreenTwo}
+                name="DoctorProfileScreen"
+                component={DoctorProfileScreen}
                 options={{ headerShown: false }}
             />
 

@@ -8,8 +8,9 @@ import { windowWidth } from '../utils/utils';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScrollView } from 'native-base';
 import { useNavigation } from '@react-navigation/core';
+import CustomTextComponent from '../components/CustomTextComponent';
 
-export default function ScreenOne() {
+export default function SearchDoctorScreen() {
     const navigation = useNavigation();
     return (
         <>
@@ -17,11 +18,21 @@ export default function ScreenOne() {
                 <Header showIcon={false} text="Doctor's for 'Bad Stomach'" />
                 <View style={{ paddingHorizontal: 16 }}>
                     <Search />
-                    <BuildCustomCardComponent navigation={navigation} />
-                    <BuildCustomCardComponent navigation={navigation} />
-                    <BuildCustomCardComponent navigation={navigation} />
-                    <BuildCustomCardComponent navigation={navigation} />
-                    <BuildCustomCardComponent navigation={navigation} />
+                    {
+                        [1, 2, 3, 4, 5, 6].map((data, index) => {
+                            return (
+                                <View key={index}>
+                                    <BuildCustomCardComponent
+                                        navigation={navigation}
+                                        drName="Dr. Co Ekaterine"
+                                        drInfo="Dynaecologist | MBBS, NBD"
+                                        image='https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                                        desc="English, Hindi, Gujarati, Maharathi"
+                                    />
+                                </View>
+                            );
+                        })
+                    }
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity style={{
@@ -52,13 +63,13 @@ const BuildCardButtonComponent = ({ image, text }) => {
     );
 }
 
-const BuildCustomCardComponent = ({ navigation }) => {
+const BuildCustomCardComponent = ({ navigation, drName, drInfo, desc, rating, image }) => {
     return (
         <Card style={{ elevation: 10, marginVertical: 16, shadowColor: "silver", paddingBottom: 10 }}>
             <View style={styles.shadow}>
                 <View>
                     <Image
-                        source={{ uri: 'https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' }}
+                        source={{ uri: image }}
                         style={{ width: 75, height: 75, borderRadius: 100 }}
                     />
                     <Card style={{
@@ -70,27 +81,27 @@ const BuildCustomCardComponent = ({ navigation }) => {
                 </View>
                 <View style={{ flexDirection: 'column', width: windowWidth - 148 }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: Colors.BLACK }}>
-                            Dr. Co Ekaterine
-                        </Text>
+                        <CustomTextComponent
+                            text={drName} fs={16} fw={"bold"} textColor={Colors.BLACK}
+                        />
                         <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                             <Image
                                 source={require("../../assets/star.png")}
                                 style={{ width: 20, height: 20 }}
                             />
-                            <Text style={{
-                                fontSize: 16, fontWeight: 'bold', color: Colors.BLACK,
-                                marginHorizontal: 8
-                            }}>4.5</Text>
+                            <CustomTextComponent
+                                text={rating} fs={16} fw={"bold"} textColor={Colors.BLACK}
+                            />
+                            <View style={{ width: 12 }} />
                             <Image
                                 source={require("../../assets/heart.png")}
                                 style={{ width: 22, height: 22, tintColor: Colors.SILVER }}
                             />
                         </View>
                     </View>
-                    <Text style={{ fontSize: 14, fontWeight: '300', color: Colors.BLACK }}>
-                        Gynaecologist | MBBS, NBD
-                    </Text>
+                    <CustomTextComponent
+                        text={drInfo} fs={14} fw={"300"} textColor={Colors.BLACK}
+                    />
                     <View style={{ height: 8 }} />
 
                     <View style={{ flexDirection: 'row', marginVertical: 4 }}>
@@ -113,10 +124,12 @@ const BuildCustomCardComponent = ({ navigation }) => {
                                 marginRight: 4,
                             }}
                         />
-                        <Text style={{ fontSize: 13, color: 'black', fontWeight: 'bold' }}>Speaks : </Text>
-                        <Text style={{ fontSize: 13, color: 'silver' }}>
-                            English, Hindi, Gujarati, Marathi
-                        </Text>
+                        <CustomTextComponent
+                            text={"Speaks: "} fs={13} fw={"bold"} textColor={Colors.BLACK}
+                        />
+                        <CustomTextComponent
+                            text={desc} fs={13} fw={"normal"} textColor={"silver"}
+                        />
                     </View>
                 </View>
             </View>
@@ -132,7 +145,7 @@ const BuildCustomCardComponent = ({ navigation }) => {
             }}>
                 <Text style={{ fontSize: 26, color: 'black', fontWeight: '600' }}>₹ 700</Text>
                 <TouchableOpacity style={styles.button_bookAppointment} onPress={() => {
-                    navigation.navigate("ScreenTwo")
+                    navigation.navigate("DoctorProfileScreen")
                 }}>
                     <Text style={{ fontSize: 16, color: 'white', marginLeft: 4 }}>Book Appointment</Text>
                 </TouchableOpacity>
