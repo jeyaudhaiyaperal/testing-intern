@@ -6,6 +6,7 @@ import CustomTextComponent from '../components/CustomTextComponent';
 import Header from '../components/Header';
 import { Colors } from '../utils/Colors';
 import { windowWidth } from '../utils/utils';
+import AwesomeButton from "react-native-really-awesome-button";
 
 export default function DoctorProfileScreen() {
 
@@ -204,11 +205,14 @@ export default function DoctorProfileScreen() {
             <View style={{
                 justifyContent: 'center', alignItems: 'center', marginVertical: 50
             }}>
-                <TouchableOpacity style={styles.button_bookAppointment}>
+                <AwesomeButton width={200} height={50} borderRadius={100} backgroundColor={Colors.BLUE2}
+                    backgroundShadow={"#368edd"} activeOpacity={0.5} backgroundDarker={"#3d7fba"}
+                    onPress={() => { }}
+                >
                     <CustomTextComponent
                         text={"Book Appointment"} fs={16} fw={"normal"} textColor={"white"}
                     />
-                </TouchableOpacity>
+                </AwesomeButton>
             </View>
 
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>

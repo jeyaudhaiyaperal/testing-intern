@@ -9,6 +9,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ScrollView } from 'native-base';
 import { useNavigation } from '@react-navigation/core';
 import CustomTextComponent from '../components/CustomTextComponent';
+import AwesomeButton from "react-native-really-awesome-button";
 
 export default function SearchDoctorScreen() {
     const navigation = useNavigation();
@@ -35,14 +36,20 @@ export default function SearchDoctorScreen() {
                     }
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{
-                        width: windowWidth - 2, height: 58, backgroundColor: '#EFA860',
-                        justifyContent: 'center', alignItems: 'center', borderRadius: 8,
+                    <AwesomeButton width={windowWidth - 10} height={58}
+                        backgroundColor={"#EFA860"} justifyContent='center' alignItems='center'
+                        backgroundShadow={"#fff"} activeOpacity={0.5} backgroundDarker="#fff"
+                        onPress={() => { navigation.navigate("DoctorProfileScreen") }}
+                    >
+                        <Text style={{ fontSize: 18, color: 'white' }}>Book Appointment</Text>
+                    </AwesomeButton>
+                    {/* <TouchableOpacity style={{
+                        borderRadius: 8,
                         shadowColor: "#999999", shadowOpacity: 0.1, elevation: 9,
                         shadowRadius: 2, shadowOffset: { height: 2, width: 0 },
                     }}>
-                        <Text style={{ fontSize: 18, color: 'white' }}>Book Appointment</Text>
-                    </TouchableOpacity>
+                        
+                    </TouchableOpacity> */}
                 </View>
                 <Text />
             </ScrollView>
@@ -144,11 +151,12 @@ const BuildCustomCardComponent = ({ navigation, drName, drInfo, desc, rating, im
                 alignItems: 'center', marginTop: 8
             }}>
                 <Text style={{ fontSize: 26, color: 'black', fontWeight: '600' }}>₹ 700</Text>
-                <TouchableOpacity style={styles.button_bookAppointment} onPress={() => {
-                    navigation.navigate("DoctorProfileScreen")
-                }}>
+                <AwesomeButton width={160} height={50} borderRadius={100} backgroundColor={Colors.BLUE2}
+                    backgroundShadow={"#368edd"} activeOpacity={0.5} backgroundDarker={"#3d7fba"}
+                    onPress={() => { navigation.navigate("DoctorProfileScreen") }}
+                >
                     <Text style={{ fontSize: 16, color: 'white', marginLeft: 4 }}>Book Appointment</Text>
-                </TouchableOpacity>
+                </AwesomeButton>
             </View>
         </Card>
     );
