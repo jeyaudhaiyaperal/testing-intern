@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import { Colors } from '../utils/Colors';
 import { windowWidth } from '../utils/utils';
 import AwesomeButton from "react-native-really-awesome-button";
+import Styles2 from '../utils/Styles'
 
 export default function DoctorProfileScreen() {
 
@@ -92,7 +93,7 @@ export default function DoctorProfileScreen() {
                 </View> : <></>}
 
                 {showTimeTab === "val1"
-                    ? <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
+                    ? <View style={Styles2.time_tab}>
                         <BuildSlotsTabComponent
                             text="11:00 AM"
                             isSelected={true}
@@ -134,8 +135,8 @@ export default function DoctorProfileScreen() {
             </Card>
             <Text />
 
-            <Card style={{ elevation: 5, shadowColor: '#999', marginTop: 12, marginHorizontal: 16 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Card style={Styles2.card2}>
+                <View style={Styles2.card2_container}>
                     <OverviewTabBlock
                         text="Overview"
                         showTab={showOverviewTab}
@@ -179,7 +180,7 @@ export default function DoctorProfileScreen() {
 
 
                 {showTimeTab === "val1"
-                    ? <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 30 }}>
+                    ? <View style={Styles2. slotTab_container}>
                         <BuildSlotsTabComponent
                             text="11:00 AM"
                             isSelected={true}
@@ -202,9 +203,9 @@ export default function DoctorProfileScreen() {
                 <Text />
             </Card>
 
-            <View style={{
-                justifyContent: 'center', alignItems: 'center', marginVertical: 50
-            }}>
+            <View style={Styles2.awesome_container
+               
+            }>
                 <AwesomeButton width={200} height={50} borderRadius={100} backgroundColor={Colors.BLUE2}
                     backgroundShadow={"#368edd"} activeOpacity={0.5} backgroundDarker={"#3d7fba"}
                     onPress={() => { }}
@@ -215,14 +216,11 @@ export default function DoctorProfileScreen() {
                 </AwesomeButton>
             </View>
 
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <TouchableOpacity style={{
-                    width: windowWidth - 2, height: 58, backgroundColor: '#EFA860',
-                    justifyContent: 'center', alignItems: 'center', borderRadius: 8,
-                    shadowColor: "#999999", shadowOpacity: 0.1, elevation: 9,
-                    shadowRadius: 2, shadowOffset: { height: 2, width: 0 },
-                }}>
-                    <Text style={{ fontSize: 18, color: 'white' }}>Book Appointment</Text>
+            <View style={Styles2.bookapp_container}>
+                <TouchableOpacity style={
+                    Styles2.book_app
+                }>
+                    <Text style={Styles2.textStyle2}>Book Appointment</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView>
@@ -232,30 +230,27 @@ export default function DoctorProfileScreen() {
 
 const BuildFifthComponent = () => {
     return (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
-            <Card style={{ elevation: 5, shadowColor: '#999', marginTop: 20 }}>
-                <View style={{
-                    flexDirection: 'row', justifyContent: 'space-between',
-                    paddingLeft: 15, paddingVertical: 10,
-                    alignItems: 'center', width: "90%",
-                }}>
-                    <View style={{
-                        width: 30, backgroundColor: '#eee', justifyContent: 'center',
-                        alignItems: 'center', height: 30, borderRadius: 200,
-                    }}>
+        <View style={Styles2.container}>
+            <Card style={Styles2.card}>
+                <View style={
+                   Styles2.image1_container_wrapper
+               }>
+                    <View style={
+                       Styles2.image1_container
+                    }>
                         <Image
                             source={require("../../assets/arrow-down.png")}
-                            style={{ width: 15, height: 15, tintColor: Colors.BLUE }}
+                            style={Styles2.image1}
                         />
                     </View>
-                    <Text style={{ color: "black", marginLeft: 4 }}>
+                    <Text style={Styles2.clinic_app}>
                         In-Clinic Appointment
                     </Text>
                     <View style={{ flexDirection: 'column', alignItems: 'flex-end' }}>
-                        <Text style={{ color: Colors.LIGHTGRAY, fontWeight: '300' }}>
+                        <Text style={Styles2.textStyle1}>
                             Fees: $ 80.70
                         </Text>
-                        <Text style={{ color: Colors.LIGHTGRAY, fontWeight: '300' }}>
+                        <Text style={Styles2.textStyle1}>
                             ₹ 1400
                         </Text>
                     </View>

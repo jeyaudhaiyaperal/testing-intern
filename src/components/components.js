@@ -4,6 +4,7 @@ import { Card } from "react-native-paper";
 import { Colors } from "../utils/Colors";
 import { windowWidth } from "../utils/utils";
 import CustomTextComponent from "./CustomTextComponent";
+import StylesComponent from "../utils/StylesComponent";
 
 export const BuildIntroductionComponent = ({ image, isOnline, name, info, location, time }) => {
     return (
@@ -11,24 +12,24 @@ export const BuildIntroductionComponent = ({ image, isOnline, name, info, locati
             <View>
                 <Image
                     source={{ uri: image }}
-                    style={{ width: 100, height: 100, borderRadius: 100 }}
+                    style={ StylesComponent.img1}
                 />
                 <Card style={styles.activeGreenBtn} />
             </View>
-            <View style={{ flexDirection: 'column', width: windowWidth - 162, marginLeft: 16 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={StylesComponent.docinfo_container}>
+                <View style={StylesComponent.doc_container}>
                     <CustomTextComponent
                         text={name} fs={20} fw={"600"} textColor={Colors.BLACK}
                     />
-                    <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+                    <View style={StylesComponent.heartimg_container}>
                         <Image
                             source={require("../../assets/heart-fill.png")}
-                            style={{ width: 20, height: 20, tintColor: "#ff0000" }}
+                            style={StylesComponent.heartimg}
                         />
                         <View style={{ width: 10 }} />
                         <Image
                             source={require("../../assets/share.png")}
-                            style={{ width: 22, height: 22 }}
+                            style={StylesComponent.share_img}
                         />
                     </View>
                 </View>
@@ -37,26 +38,24 @@ export const BuildIntroductionComponent = ({ image, isOnline, name, info, locati
                 />
                 <View style={{ height: 4 }} />
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 6 }}>
+                <View style={StylesComponent.location_container}>
                     <Image
                         source={require('../../assets/location.png')}
-                        style={{
-                            width: 20, height: 20, tintColor: "#51B7B7",
-                            marginRight: 4, marginLeft: -4,
-                        }}
+                        style={
+                          StylesComponent.location_img
+                        }
                     />
                     <CustomTextComponent
                         text={`Location: ${location}`} fs={13} fw={"300"} textColor={Colors.BLACK}
                     />
                 </View>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 6 }}>
+                <View style={StylesComponent.clock_container}>
                     <Image
                         source={require('../../assets/clock.png')}
-                        style={{
-                            width: 13, height: 13, tintColor: "#51B7B7",
-                            marginRight: 8,
-                        }}
+                        style={StylesComponent.clock_img
+                         
+                        }
                     />
                     <CustomTextComponent
                         text={"Available Time: "} fs={13} fw={"300"} textColor={Colors.BLACK}
@@ -73,7 +72,7 @@ export const BuildIntroductionComponent = ({ image, isOnline, name, info, locati
 
 export const BuildPersonalInfoComponent = ({ text1, image1, text2, image2, text3, image3 }) => {
     return (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+        <View style={StylesComponent.personal_container}>
             <PersonalInfoCardComponent
                 image={image1} text={text1} title="Patients"
             />
@@ -92,18 +91,16 @@ export const BuildPersonalInfoComponent = ({ text1, image1, text2, image2, text3
 
 export const PersonalInfoCardComponent = ({ title, text, image }) => {
     return (
-        <Card style={{
-            flexDirection: 'column', elevation: 4, shadowColor: 'silver', height: 75,
-            paddingHorizontal: 16, paddingTop: 11, width: windowWidth / 3 - 25,
-            justifyContent: 'center', alignItems: 'center', borderRadius: 14
-        }}>
+        <Card style={
+           StylesComponent.personalInfo_card
+        }>
             <CustomTextComponent
                 text={title} fs={14} fw={"300"} textColor={"grey"} textAign={"center"}
             />
             <View style={{ flexDirection: 'row', marginTop: 8 }}>
                 <Image
                     source={image}
-                    style={{ width: 20, height: 20, marginRight: 6, tintColor: Colors.BLUE2 }}
+                    style={StylesComponent.personalcard_image}
                 />
                 <CustomTextComponent
                     text={text} fs={16} fw={"600"} textColor={"black"}
@@ -120,16 +117,16 @@ export const BuildTabCardComponent = ({ showTab, onPress, text, selectedVal }) =
             elevation: showTab === selectedVal ? 5 : 0,
             shadowColor: '#999', paddingHorizontal: 20, paddingVertical: 12,
         }}>
-            <TouchableOpacity activeOpacity={0.5} style={{
-                flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center'
-            }} onPress={() => onPress()}>
+            <TouchableOpacity activeOpacity={0.5} style={
+                StylesComponent.tabcard_touchable
+            } onPress={() => onPress()}>
                 <CustomTextComponent
                     text={text} fs={14} fw={"300"} textColor={Colors.BLUE}
                 />
                 <View style={{ marginRight: 20 }} />
                 <Image
                     source={require("../../assets/arrow-down.png")}
-                    style={{ width: 15, height: 15, tintColor: Colors.BLUE }}
+                    style={StylesComponent.arrowdown_img}
                 />
             </TouchableOpacity>
         </Card>

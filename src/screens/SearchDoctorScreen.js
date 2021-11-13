@@ -10,6 +10,7 @@ import { ScrollView } from 'native-base';
 import { useNavigation } from '@react-navigation/core';
 import CustomTextComponent from '../components/CustomTextComponent';
 import AwesomeButton from "react-native-really-awesome-button";
+import Styles2 from "../utils/Styles"
 
 export default function SearchDoctorScreen() {
     const navigation = useNavigation();
@@ -35,13 +36,13 @@ export default function SearchDoctorScreen() {
                         })
                     }
                 </View>
-                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <View style={Styles2.bookapp_container}>
                     <AwesomeButton width={windowWidth - 10} height={58}
                         backgroundColor={"#EFA860"} justifyContent='center' alignItems='center'
                         backgroundShadow={"#fff"} activeOpacity={0.5} backgroundDarker="#fff"
                         onPress={() => { navigation.navigate("DoctorProfileScreen") }}
                     >
-                        <Text style={{ fontSize: 18, color: 'white' }}>Book Appointment</Text>
+                        <Text style={Styles2.textStyle2}>Book Appointment</Text>
                     </AwesomeButton>
                     {/* <TouchableOpacity style={{
                         borderRadius: 8,
@@ -63,46 +64,43 @@ const BuildCardButtonComponent = ({ image, text }) => {
         <TouchableOpacity style={styles.button_shadow}>
             <Image
                 source={image}
-                style={{ width: 18, height: 18, tintColor: '#3387d2' }}
+                style={Styles2.buildcard_image}
             />
-            <Text style={{ fontSize: 12, color: 'black', marginLeft: 4 }}>{text}</Text>
+            <Text style={Styles2.textStyle3}>{text}</Text>
         </TouchableOpacity>
     );
 }
 
 const BuildCustomCardComponent = ({ navigation, drName, drInfo, desc, rating, image }) => {
     return (
-        <Card style={{ elevation: 10, marginVertical: 16, shadowColor: "silver", paddingBottom: 10 }}>
+        <Card style={Styles2.customcard_container}>
             <View style={styles.shadow}>
                 <View>
                     <Image
                         source={{ uri: image }}
-                        style={{ width: 75, height: 75, borderRadius: 100 }}
+                        style={Styles2.customcard_image1}
                     />
-                    <Card style={{
-                        width: 14, height: 14, backgroundColor: '#51B7B7',
-                        borderRadius: 100, position: 'absolute',
-                        right: 0, top: 54, borderWidth: 2, borderColor: 'white',
-                        elevation: 4, shadowColor: '#999'
-                    }} />
+                    <Card style={Styles2.custom_card1
+                     
+                    } />
                 </View>
-                <View style={{ flexDirection: 'column', width: windowWidth - 148 }}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={Styles2.docinfo_container}>
+                    <View style={Styles2.docinfo }>
                         <CustomTextComponent
                             text={drName} fs={16} fw={"bold"} textColor={Colors.BLACK}
                         />
-                        <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+                        <View style={Styles2.starimg_container}>
                             <Image
                                 source={require("../../assets/star.png")}
-                                style={{ width: 20, height: 20 }}
+                                style={Styles2.star_img}
                             />
                             <CustomTextComponent
                                 text={rating} fs={16} fw={"bold"} textColor={Colors.BLACK}
                             />
-                            <View style={{ width: 12 }} />
+                            <View style={Styles2.heartimg_container} />
                             <Image
                                 source={require("../../assets/heart.png")}
-                                style={{ width: 22, height: 22, tintColor: Colors.SILVER }}
+                                style={Styles2.heart_img}
                             />
                         </View>
                     </View>
@@ -111,25 +109,24 @@ const BuildCustomCardComponent = ({ navigation, drName, drInfo, desc, rating, im
                     />
                     <View style={{ height: 8 }} />
 
-                    <View style={{ flexDirection: 'row', marginVertical: 4 }}>
+                    <View style={Styles2.docyears_container}>
                         <BuildCardButtonComponent
                             image={require("../../assets/user.png")}
                             text={"8 Years"}
                         />
-                        <View style={{ width: 12 }} />
+                        <View style={Styles2.place_container} />
                         <BuildCardButtonComponent
                             image={require("../../assets/location.png")}
                             text={"Ahmedabad, IN"}
                         />
                     </View>
 
-                    <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 6 }}>
+                    <View style={Styles2.globeimg_container}>
                         <Image
                             source={require('../../assets/globe.png')}
-                            style={{
-                                width: 16, height: 16, tintColor: "#51B7B7",
-                                marginRight: 4,
-                            }}
+                            style={
+                              Styles2.globe_img
+                            }
                         />
                         <CustomTextComponent
                             text={"Speaks: "} fs={13} fw={"bold"} textColor={Colors.BLACK}
@@ -141,21 +138,19 @@ const BuildCustomCardComponent = ({ navigation, drName, drInfo, desc, rating, im
                 </View>
             </View>
             <View style={{ alignItems: 'center' }}>
-                <View style={{
-                    width: windowWidth - 70, backgroundColor: '#eee', height: 1.3,
-                    marginTop: -8,
-                }} />
+                <View style={
+                  Styles2.divider_line
+                } />
             </View>
-            <View style={{
-                flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20,
-                alignItems: 'center', marginTop: 8
-            }}>
-                <Text style={{ fontSize: 26, color: 'black', fontWeight: '600' }}>₹ 700</Text>
+            <View style={Styles2.appointment_container
+             
+            }>
+                <Text style={Styles2.fee_text}>₹ 700</Text>
                 <AwesomeButton width={160} height={50} borderRadius={100} backgroundColor={Colors.BLUE2}
                     backgroundShadow={"#368edd"} activeOpacity={0.5} backgroundDarker={"#3d7fba"}
                     onPress={() => { navigation.navigate("DoctorProfileScreen") }}
                 >
-                    <Text style={{ fontSize: 16, color: 'white', marginLeft: 4 }}>Book Appointment</Text>
+                    <Text style={Styles2.appointment_text}>Book Appointment</Text>
                 </AwesomeButton>
             </View>
         </Card>

@@ -7,32 +7,28 @@ import {
 } from "react-native";
 import { Card } from "react-native-paper";
 import { Colors } from "../utils/Colors";
+import StylesComponent from "../utils/StylesComponent";
 
 
 const Search = () => {
     return (
         // <Card style={{ elevation: 4, shadowColor: '#999' }}>
-        <View style={{
-            flexDirection: 'row', alignItems: 'center', marginTop: 10,
-            borderRadius: 10,
-            elevation: 5, shadowColor: '#999', overflow: 'hidden',
-        }}>
+        <View style={
+          StylesComponent.search_container
+        }>
             <TextInput
-                style={{
-                    backgroundColor: Colors.WHITE, height: 50,
-                    color: "white", width: "100%", paddingLeft: 24,
-                    borderRadius: 10,
-                }}
+                style={
+                   StylesComponent.search_text
+                }
                 onChangeText={(text) => { }}
                 placeholder="Search by doctor name or location"
                 placeholderTextColor={Colors.ICONCOLOR}
             />
             <Image
                 source={require("../../assets/mail-filter.png")}
-                style={{
-                    width: 28, height: 28, position: 'absolute',
-                    tintColor: Colors.BLACK, right: 20
-                }}
+                style={
+                  StylesComponent.mail_img
+                }
             />
         </View>
         // </Card>

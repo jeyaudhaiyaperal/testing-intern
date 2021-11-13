@@ -11,7 +11,7 @@ export const Colors = {
     DARKGRAY: '#464646',
     AIR: '#f3f3f1',
     SILVER: '#8e9aa0',
-    BLACK: '#000000',
+    BLACK: '#000',
     DARKBLUE: '#0081C5',
     INPUTFILLCOLOR: "#EBEBEB",
     ICONCOLOR: "#C2C2C2",
